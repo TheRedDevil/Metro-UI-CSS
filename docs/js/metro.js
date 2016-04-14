@@ -4633,11 +4633,7 @@ $.widget( "metro.dialog" , {
 
     _createOverlay: function(){
         var that = this, element = this.element, o = this.options;
-        var overlay = $('body').find('.dialog-overlay');
-
-        if (overlay.length === 0) {
-            overlay = $("<div/>").addClass('dialog-overlay');
-        }
+        var overlay =  $("<div/>").addClass('dialog-overlay');
 
         if (o.overlayColor) {
             if (o.overlayColor.isColor()) {
