@@ -21,6 +21,7 @@ $.widget( "metro.dialog" , {
         show: false,
         _interval: undefined,
         _overlay: undefined,
+        _overlayId: undefined,
 
         onDialogOpen: function(dialog){},
         onDialogClose: function(dialog){}
@@ -54,6 +55,10 @@ $.widget( "metro.dialog" , {
     _createOverlay: function(){
         var that = this, element = this.element, o = this.options;
         var overlay =  $("<div/>").addClass('dialog-overlay');
+
+        var overlayId = Math.random().toString(36).slice(2);
+        this._overlayId = 'dialog-overlay-' + overlayId;
+        overlay.attr('id', overlayId);
 
         if (o.overlayColor) {
             if (o.overlayColor.isColor()) {
@@ -199,7 +204,7 @@ $.widget( "metro.dialog" , {
         clearInterval(o._interval);
 
         if (o.overlay) {
-            $('body').find('.dialog-overlay').last().remove();
+            $('body').find('#' + this._overlayId).remove();
         }
 
         element.data('opened', false);
