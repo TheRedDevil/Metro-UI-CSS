@@ -4636,8 +4636,8 @@ $.widget( "metro.dialog" , {
         var that = this, element = this.element, o = this.options;
         var overlay =  $("<div/>").addClass('dialog-overlay');
 
-        var overlayId = Math.random().toString(36).slice(2);
-        this._overlayId = 'dialog-overlay-' + overlayId;
+        var overlayId = 'dialog-overlay-' + Math.random().toString(36).slice(2);
+        this._overlayId = overlayId;
         overlay.attr('id', overlayId);
 
         if (o.overlayColor) {
